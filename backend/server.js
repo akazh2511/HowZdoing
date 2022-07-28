@@ -13,7 +13,7 @@ const path = require("path");
 const app= express();
 
 dotenv.config({path:"backend/config/config.env"});
-const PORT=process.env.PORT ;
+const PORT=process.env.PORT || 5000;
 const NODE_ENV =process.env.NODE_ENV;
 connectDB();
 app.use(express.json())
@@ -50,6 +50,7 @@ const server=app.listen(PORT,()=>{
 
     console.log(`SERVER IS WORKING ON http://localhost:${PORT}`)
 })
+
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
@@ -57,6 +58,7 @@ const io = require("socket.io")(server, {
       // credentials: true,
     },
   });
+  
 io.on("connection", (socket) => {
     console.log("Connected to socket.io");
     socket.on("setup", (userData) => {
