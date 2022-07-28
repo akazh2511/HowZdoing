@@ -9,7 +9,7 @@ import axios from "axios";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import ProfileModal from "./miscellaneous/ProfileModal";
 import ScrollableChat from "./ScrollableChat";
-import Lottie from "react-lottie";
+//import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 
 import io from "socket.io-client";
@@ -27,14 +27,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [istyping, setIsTyping] = useState(false);
   const toast = useToast();
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  // const defaultOptions = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData: animationData,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
   const { selectedChat, setSelectedChat, user, notification, setNotification } =
     ChatState();
 
@@ -227,7 +227,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               isRequired
               mt={3}
             >
-              {istyping ? (
+              {/* {istyping ? (
                 <div>
                   <Lottie
                     options={defaultOptions}
@@ -238,7 +238,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 </div>
               ) : (
                 <></>
-              )}
+              )} */}
               <Input
                 variant="filled"
                 bg="#E0E0E0"
