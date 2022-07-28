@@ -4,12 +4,16 @@
   "description": "",
   "main": "server.js",
   "engines": {
-    "node": "16.15.1"
+    "node": "16.15.1",
+    "npm": "8.11.0"
   },
   "scripts": {
     
     "start": "nodemon backend/server.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "server": "nodemon backend/server.js",
+    "client": "npm run start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +26,7 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.19",
-    "socket.io": "^4.5.1"
+    "socket.io": "^4.5.1",
+    "concurrently": "^3.5.1"
   }
 }
