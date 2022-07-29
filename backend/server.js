@@ -13,7 +13,7 @@ const path = require("path");
 const app= express();
 
 dotenv.config({path:"backend/config/config.env"});
-const PORT=process.env.PORT;
+const PORT=process.env.PORT ||5000;
 const NODE_ENV =process.env.NODE_ENV;
 connectDB();
 app.use(express.json())
