@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.60a53743.css",
-    "main.js": "/static/js/main.a06f6071.js",
+    "main.js": "/static/js/main.650e990a.js",
     "static/media/Use this background in your Picaboo Photo Book.jpg": "/static/media/Use this background in your Picaboo Photo Book.04a4bb970ea67c13cebd.jpg",
     "index.html": "/index.html",
     "main.60a53743.css.map": "/static/css/main.60a53743.css.map",
-    "main.a06f6071.js.map": "/static/js/main.a06f6071.js.map"
+    "main.650e990a.js.map": "/static/js/main.650e990a.js.map"
   },
   "entrypoints": [
     "static/css/main.60a53743.css",
-    "static/js/main.a06f6071.js"
+    "static/js/main.650e990a.js"
   ]
 }

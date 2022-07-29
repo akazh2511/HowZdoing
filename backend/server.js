@@ -13,7 +13,7 @@ const path = require("path");
 const app= express();
 
 dotenv.config({path:"backend/config/config.env"});
-const PORT=process.env.PORT ;
+const PORT=process.env.PORT;
 const NODE_ENV =process.env.NODE_ENV;
 connectDB();
 app.use(express.json())
@@ -40,16 +40,13 @@ if (NODE_ENV === "production") {
 }
 
 // --------------------------deployment------------------------------
-
+const server = require("http").createServer(app);
 
 
 app.use(notFound);
 app.use(errorHandler);
 
-const server=app.listen(PORT,()=>{
-
-    console.log(`SERVER IS WORKING ON http://localhost:${PORT}`)
-})
+ 
 const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
@@ -64,8 +61,8 @@ io.on("connection", (socket) => {
       socket.emit("connected");
     });
   
-    socket.on("join chat", (room) => {
-      socket.join(room);
+    socket.on("join chat", async (room) => {
+     await socket.join(room);
       console.log("User Joined Room: " + room);
     });
     socket.on("typing", (room) => socket.in(room).emit("typing"));
@@ -88,3 +85,10 @@ io.on("connection", (socket) => {
       socket.leave(userData._id);
     });
   });
+  server.listen(PORT,()=>{
+
+    console.log(`SERVER IS WORKING ON http://localhost:${PORT}`)
+})
+
+
+  

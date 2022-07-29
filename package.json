@@ -4,18 +4,20 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    
-    "start": "nodemon backend/server.js"
+    "start": "concurrently \"npm run start --prefix frontend\" \"node backend/server.js\"",
+    "server": "nodemon backend/server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
+    "concurrently": "^7.3.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0",
+    "http": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.19",
     "socket.io": "^4.5.1"
